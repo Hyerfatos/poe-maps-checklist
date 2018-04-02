@@ -239,7 +239,7 @@ var profilesKey = 'darksouls3_profiles';
         if (!('collapsed' in profiles[profilesKey][profile_name]))
             profiles[profilesKey][profile_name].collapsed = {};
         if (!('current_tab' in profiles[profilesKey][profile_name]))
-            profiles[profilesKey][profile_name].current_tab = '#tabPlaythrough';
+            profiles[profilesKey][profile_name].current_tab = '#tabMapList';
         if (!('hide_completed' in profiles[profilesKey][profile_name]))
             profiles[profilesKey][profile_name].hide_completed = false;
         if (!('hidden_categories' in profiles[profilesKey][profile_name]))
@@ -347,7 +347,7 @@ var profilesKey = 'darksouls3_profiles';
             var overallCount = 0, overallChecked = 0;
             $('[id^="' + type + '_totals_"]').each(function(index) {
                 var regex = new RegExp(type + '_totals_(.*)');
-                var regexFilter = new RegExp('^playthrough_(.*)');
+                var regexFilter = new RegExp('^maplist_(.*)');
                 var i = parseInt(this.id.match(regex)[1]);
                 var count = 0, checked = 0;
                 for (var j = 1; ; j++) {
@@ -467,22 +467,16 @@ var profilesKey = 'darksouls3_profiles';
      */
     $(function() {
         var jets = [new Jets({
-            searchTag: '#playthrough_search',
-            contentTag: '#playthrough_list ul'
+            searchTag: '#maplist_search',
+            contentTag: '#maplist_list ul'
         }), new Jets({
             searchTag: '#item_search',
             contentTag: '#item_list h4, #item_list ul'// This does not mean that we are searching inside the content of both <h4> and <ul> tags
-        }), new Jets({
-            searchTag: '#weapons_search',
-            contentTag: '#weapons_list h4, #weapons_list ul'// The outcome is that all <h4> tags are hidden while searching inside <ul> tags
-        }), new Jets({
-            searchTag: '#armors_search',
-            contentTag: '#armors_list ul'
         })];
 
-        $('#playthrough_search').keyup(function() {
-            $('#playthrough_list').unhighlight();
-            $('#playthrough_list').highlight($(this).val());
+        $('#maplist_search').keyup(function() {
+            $('#maplist_list').unhighlight();
+            $('#maplist_list').highlight($(this).val());
         });
         $('#item_search').keyup(function() {
             $('#item_list').unhighlight();
