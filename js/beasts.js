@@ -1625,7 +1625,7 @@ function generateList(tier, family) {
     return buffer;
 }
 
-$("#Beasts_The_Wilds").html(generateList("1", "The Sands"));
+$("#Beasts_The_Wilds").html(generateList("1", "The Wilds"));
 $("#Beasts_The_Sand").html(generateList("2", "The Sands"));
 $("#Beasts_The_Caverns").html(generateList("3", "The Caverns"));
 $("#Beasts_The_Deep").html(generateList("4", "The Deep"));
