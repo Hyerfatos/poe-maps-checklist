@@ -675,7 +675,7 @@ function generateMaps(tier) {
     map = maps[tier]
     var buffer="";
     $.each(map, function(index, val){
-        buffer+='<li data-id="playthrough_'+tier+'_'+(index+1)+'" class="f_map"><a href='+val["Url"]+'>'+val["Name"]+'</a></li>'
+        buffer += '<li data-id="playthrough_' + tier + '_' + (index+1) + '" class="f_map_' + tier + '"><a href=' + val["Url"] + '>' + val["Name"] + '</a></li>'
     });
     return buffer;
 }
